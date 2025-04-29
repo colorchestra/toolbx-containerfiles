@@ -19,6 +19,4 @@ RUN dnf -y upgrade \
 RUN pip install \
   yt-dlp
 
-COPY mp3 /usr/bin/mp3
-COPY vid-mp4 /usr/bin/vid-mp4
-COPY vid-best /usr/bin/vid-best
+COPY bin/* /usr/bin
