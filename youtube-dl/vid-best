@@ -1,0 +1,2 @@
+#!/bin/sh
+yt-dlp -f "bv*+ba/bestvideo+bestaudio/best" -o "%(title)s.%(ext)s" "$*"

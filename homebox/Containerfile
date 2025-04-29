@@ -1,0 +1,24 @@
+FROM registry.fedoraproject.org/fedora-toolbox:42
+
+ARG NAME=homebox
+
+LABEL name="$NAME" \
+      summary="Fedora toolbox base container" \
+      maintainer="Marvin"
+
+ENV EDITOR=nvim
+
+# Install packages
+RUN dnf -y upgrade \
+  && dnf -y install \
+  tmux \
+  htop \
+  hugo \
+  python3-pip \
+  ripgrep \
+  neovim \
+  ncdu \
+  && dnf clean all
+
+#RUN pip install \
+#  yt-dlp

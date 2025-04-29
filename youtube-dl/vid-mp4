@@ -1,0 +1,2 @@
+#!/bin/sh
+yt-dlp -f "bv*[vcodec^=avc1]+ba[acodec^=mp4a]/best[ext=mp4]" "$*"

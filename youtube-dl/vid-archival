@@ -1,0 +1,16 @@
+#!/bin/sh
+#This saves:
+#    Best quality streams
+#    All subtitles
+#    Thumbnail
+#    Metadata (like uploader, upload date, description)
+#    Chapters
+#    Info JSON (great for cataloging or scripting)
+
+yt-dlp \
+  -f "bv*+ba/bestvideo+bestaudio/best" \
+  --embed-subs --embed-thumbnail --embed-metadata --embed-chapters \
+  --write-subs --write-auto-subs --all-subs \
+  --write-thumbnail --write-info-json \
+  -o "%(title)s.%(ext)s" \
+  "$*"
