@@ -4,7 +4,7 @@ ARG NAME=youtube-dl
 
 LABEL name="$NAME" \
       summary="Youtube downloader toolbox container" \
-      maintainer="Marvin"
+      maintainer="morph"
 
 ENV EDITOR=nvim
 

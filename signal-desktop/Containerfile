@@ -1,0 +1,21 @@
+FROM debian:bookworm
+
+ARG NAME=signal-desktop
+
+LABEL name="$NAME" \
+      summary="Debian container to run signal-desktop" \
+      maintainer="morph"
+
+# install stuff required for installation
+RUN apt update && apt install -y wget gpg libasound2
+
+# instructions copied verbatim from https://signal.org/download/
+# 1. Install our official public software signing key:
+RUN wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg && \
+    cat signal-desktop-keyring.gpg | tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+
+# 2. Add our repository to your list of repositories:
+RUN echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | tee /etc/apt/sources.list.d/signal-xenial.list
+
+# 3. Update your package database and install Signal:
+RUN apt update && apt install -y signal-desktop

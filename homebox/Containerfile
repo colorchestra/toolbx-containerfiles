@@ -4,7 +4,7 @@ ARG NAME=homebox
 
 LABEL name="$NAME" \
       summary="Fedora toolbox base container" \
-      maintainer="Marvin"
+      maintainer="morph"
 
 ENV EDITOR=nvim
 
