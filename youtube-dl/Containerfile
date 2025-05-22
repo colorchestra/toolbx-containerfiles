@@ -1,4 +1,4 @@
-FROM coolbox:latest
+FROM homebox:latest
 
 ARG NAME=youtube-dl
 
