@@ -9,8 +9,11 @@ before_script:
 build:
   stage: build
   script:
-    - cd cloud-tools
-    - docker build -t $CONTAINER_REGISTRY/$CI_PROJECT_PATH/cloud-tools:latest .
+    - cd homebox
+    - docker build -f Containerfile -t $CONTAINER_REGISTRY/$CI_PROJECT_PATH/homebox:latest .
+    - docker push $CONTAINER_REGISTRY/$CI_PROJECT_PATH/homebox:latest
+    - cd ../cloud-tools
+    - docker build -f Containerfile -t $CONTAINER_REGISTRY/$CI_PROJECT_PATH/cloud-tools:latest .
     - docker push $CONTAINER_REGISTRY/$CI_PROJECT_PATH/cloud-tools:latest
   tags:
     - docker-build
