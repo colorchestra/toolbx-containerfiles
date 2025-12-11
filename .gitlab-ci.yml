@@ -9,11 +9,10 @@ before_script:
 build:
   stage: build
   script:
-    - cd homebox
-    - docker build -f Containerfile -t $CONTAINER_REGISTRY/$CI_PROJECT_PATH/homebox:latest .
-    - docker push $CONTAINER_REGISTRY/$CI_PROJECT_PATH/homebox:latest
-    - cd ../cloud-tools
-    - docker build -f Containerfile -t $CONTAINER_REGISTRY/$CI_PROJECT_PATH/cloud-tools:latest .
-    - docker push $CONTAINER_REGISTRY/$CI_PROJECT_PATH/cloud-tools:latest
+    - build() { cd "$*" || exit 1; docker build -f Containerfile -t "${CONTAINER_REGISTRY}/${CI_PROJECT_PATH}/$*:latest" . && docker push "${CONTAINER_REGISTRY}/${CI_PROJECT_PATH}/$*:latest" ; cd .. ; }
+    - build_image homebox
+    - build_image signal-desktop
+    - build_image youtube-dl
+    - build_image cloud-tools
   tags:
     - docker-build
