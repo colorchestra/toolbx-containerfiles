@@ -11,15 +11,14 @@ ENV EDITOR=nvim
 # Install packages
 RUN dnf -y upgrade \
   && dnf -y install \
-  tmux \
+  golang \
   htop \
   hugo \
+  ncdu \
+  neovim \
   python3-pip \
   ripgrep \
-  neovim \
-  ncdu \
-  golang \
+  tmux \
+  unzip \
   && dnf clean all
 
-#RUN pip install \
-#  yt-dlp
