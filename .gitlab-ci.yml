@@ -16,9 +16,9 @@ before_script:
 build:
   stage: build
   script:
-    - build_image homebox
-    - build_image signal-desktop
-    - build_image youtube-dl
-    - build_image cloud-tools
+    - build homebox
+    - build signal-desktop
+    - build youtube-dl
+    - build cloud-tools
   tags:
     - docker-build
