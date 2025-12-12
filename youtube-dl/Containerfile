@@ -19,4 +19,4 @@ RUN dnf -y upgrade \
 RUN pip install \
   yt-dlp
 
-COPY bin/* /usr/bin
+COPY bin/* /usr/bin/
