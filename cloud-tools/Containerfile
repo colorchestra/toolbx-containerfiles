@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/colorchestra-ci/toolbox/homebox
+FROM registry.gitlab.com/colorchestra-ci/toolbox/homebox:latest
 
 ARG NAME=cloud-tools
 

@@ -1,4 +1,4 @@
-FROM homebox:latest
+FROM registry.gitlab.com/colorchestra-ci/toolbox/homebox:latest
 
 ARG NAME=youtube-dl
 
