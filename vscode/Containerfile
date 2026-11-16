@@ -1,0 +1,25 @@
+ARG NAME=homebox
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:45
+
+FROM ${BASE}
+
+LABEL name="$NAME" \
+      summary="Fedora VS code and Claude container" \
+      maintainer="morph"
+
+ENV EDITOR=nvim
+
+# Install packages
+RUN dnf -y upgrade \
+  && dnf -y install \
+  golang \
+  htop \
+  hugo \
+  ncdu \
+  neovim \
+  python3-pip \
+  ripgrep \
+  tmux \
+  unzip \
+  && dnf clean all
+

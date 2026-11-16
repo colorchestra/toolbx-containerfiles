@@ -1,7 +1,7 @@
-#FROM registry.gitlab.com/colorchestra-ci/toolbox/homebox:latest
-FROM fedora:44
+ARG NAME=yt-dlp
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:45
 
-ARG NAME=youtube-dl
+FROM ${BASE}
 
 LABEL name="$NAME" \
       summary="Youtube downloader toolbox container" \

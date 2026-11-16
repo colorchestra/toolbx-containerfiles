@@ -1,6 +1,7 @@
-FROM registry.gitlab.com/colorchestra-ci/toolbox/homebox:latest
-
 ARG NAME=cloud-tools
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:45
+
+FROM ${BASE}
 
 LABEL name="$NAME" \
       summary="Fedora container to run all of the cloud provider nonsense" \

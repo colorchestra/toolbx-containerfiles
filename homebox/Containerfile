@@ -1,6 +1,7 @@
-FROM registry.fedoraproject.org/fedora-toolbox:45
-
 ARG NAME=homebox
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:45
+
+FROM ${BASE}
 
 LABEL name="$NAME" \
       summary="Fedora toolbox base container" \
