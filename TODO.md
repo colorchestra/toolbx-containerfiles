@@ -1,0 +1,6 @@
+- [ ] split homebox into base software image and personal customizations
+- [ ] create new repo for all of my home stuff
+- [ ] pull in that repo
+- [ ] check difference between toolbx images and normal ones -> use normal if possible. should work well with toolbx and distrobox
+- [ ] make sure all manpages are there
+- [ ] write script for pulling pipeline-built images

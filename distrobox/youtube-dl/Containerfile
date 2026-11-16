@@ -1,0 +1,23 @@
+#FROM registry.gitlab.com/colorchestra-ci/toolbox/homebox:latest
+FROM fedora:44
+
+ARG NAME=youtube-dl
+
+LABEL name="$NAME" \
+      summary="Youtube downloader toolbox container" \
+      maintainer="morph"
+
+ENV EDITOR=nvim
+
+# Install packages
+RUN dnf -y upgrade \
+  && dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  && dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
+  && dnf -y install \
+  ffmpeg ffmpeg-libs python python3-pip x264 x264-libs \
+  && dnf clean all
+
+RUN pip install \
+  yt-dlp
+
+COPY bin/* /usr/bin/
