@@ -1,4 +1,4 @@
-ARG NAME=homebox
+ARG NAME=base
 ARG BASE=registry.fedoraproject.org/fedora-toolbox:${fedora_version}
 
 FROM ${BASE}
@@ -26,5 +26,6 @@ RUN dnf -y upgrade \
   ripgrep \
   tmux \
   unzip \
-  && dnf clean all
+  yadm \
+    && dnf clean all
 
