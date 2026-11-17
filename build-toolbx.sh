@@ -5,7 +5,8 @@ set -e
 
 name="${1:-homebox}"
 namespace="toolbx"
-baseimage="registry.fedoraproject.org/fedora-toolbox:45"
+#baseimage="registry.fedoraproject.org/fedora-toolbox:${fedora_version}"
+baseimage="toolbx/base"
 
 source ./lib/_build-image.sh "${name}" "${namespace}" "${baseimage}"
 

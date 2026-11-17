@@ -5,6 +5,6 @@ set -e
 
 name="${1:-homebox}"
 namespace="krun"
-baseimage="registry.fedoraproject.org/fedora-minimal:45"
+baseimage="registry.fedoraproject.org/fedora-minimal:${fedora_version}"
 
 source ./lib/_build-image.sh "${name}" "${namespace}" "${baseimage}"
