@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"  # go to repo root for script calls
 name="${1:-homebox}"
 namespace="toolbx"
 #baseimage="registry.fedoraproject.org/fedora-toolbox:${fedora_version}"
-baseimage="toolbx/base"
+baseimage="localhost/toolbx/base:latest"
 fullname="${namespace}/${name}"
 
 ./lib/_build-image.sh "${name}" "${namespace}" "${baseimage}"

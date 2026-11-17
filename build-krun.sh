@@ -7,6 +7,6 @@ source ./lib/FEDORA_VERSION
 
 name="${1:-homebox}"
 namespace="krun"
-baseimage="registry.fedoraproject.org/fedora-minimal:${fedora_version}"
+baseimage="localhost/krun/base:latest"
 
 ./lib/_build-image.sh "${name}" "${namespace}" "${baseimage}"

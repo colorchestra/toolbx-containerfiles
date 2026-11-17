@@ -7,6 +7,7 @@ source ./lib/FEDORA_VERSION
 
 name="${1:-homebox}"
 namespace="bootc"
-baseimage="quay.io/fedora/fedora-bootc:${fedora_version}"
+#baseimage="quay.io/fedora/fedora-bootc:${fedora_version}"
+baseimage="localhost/bootc/base:latest"
 
 ./lib/_build-image.sh "${name}" "${namespace}" "${baseimage}"
