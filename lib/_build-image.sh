@@ -5,6 +5,7 @@
 # usage: _build-image.sh NAME NAMESPACE BASEIMAGE
 
 set -e
+cd "$(dirname "${BASH_SOURCE[0]}")/.."  # go to repo root for script calls
 
 name="$1"
 namespace="$2"
@@ -12,8 +13,7 @@ base_image="$3"
 fullname="${namespace}/${name}"
 temp_tag="build-$(date +%Y%m%d_%H%M%S)"
 
-# ein dir hoch, aus lib raus, ins repo root. sorry, hässlich...
-cd $(dirname "${BASH_SOURCE[0]}")/../"$name"
+cd "${name}"
 
 echo "Building image with temporary tag"
 podman build --build-arg BASE=${base_image} -t "${fullname}:${temp_tag}" -f Containerfile
