@@ -9,20 +9,41 @@ LABEL name="$NAME" \
 
 ENV EDITOR=nvim
 
-# yadm repo
-RUN dnf config-manager addrepo \
-  --from-repofile=https://download.opensuse.org/repositories/home:TheLocehiliosan:yadm/Fedora_43/home:TheLocehiliosan:yadm.repo
 
 # Install packages
 RUN dnf -y upgrade \
   && dnf -y install \
-  nmap \
-  whois \
-  mtr \
-  tcpdump \
-  wireshark-cli \
-  macchanger \
-  smartctl \
+    aircrack-ng \
+    ampy \
+    bat \
+    esptool \
+    fastfetch \
+    flashrom \
+    hdparm \
+    htop \
+    imapsync \
+    inotify-tools \
+    inxi \
+    iptstate \
+    jq \
+    lynx \
+    macchanger \
+    mc \
+    mtr \
+    ncdu \
+    nethogs \
+    nmap \
+    nvme-cli \
+    pwgen \
+    ripgrep \
+    screen \
+    smartmontools \
+    tcpdump \
+    tio \
+    tmux \
+    tree \
     unzip \
+    whois \
+    wireshark-cli \
   && dnf clean all
 
