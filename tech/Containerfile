@@ -1,0 +1,28 @@
+ARG NAME=homebox
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:${fedora_version}
+
+FROM ${BASE}
+
+LABEL name="$NAME" \
+      summary="Fedora toolbox tech container for admin and development stuff" \
+      maintainer="morph"
+
+ENV EDITOR=nvim
+
+# yadm repo
+RUN dnf config-manager addrepo \
+  --from-repofile=https://download.opensuse.org/repositories/home:TheLocehiliosan:yadm/Fedora_43/home:TheLocehiliosan:yadm.repo
+
+# Install packages
+RUN dnf -y upgrade \
+  && dnf -y install \
+  nmap \
+  whois \
+  mtr \
+  tcpdump \
+  wireshark-cli \
+  macchanger \
+  smartctl \
+    unzip \
+  && dnf clean all
+

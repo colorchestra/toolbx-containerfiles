@@ -1,0 +1,30 @@
+ARG NAME=homebox
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:${fedora_version}
+
+FROM ${BASE}
+
+LABEL name="$NAME" \
+      summary="Fedora toolbox base container" \
+      maintainer="morph"
+
+ENV EDITOR=nvim
+
+# yadm repo
+# RUN dnf config-manager addrepo funktioneirt nicht immer, zB bei fedora-minimal. daher oldschool
+COPY yadm.repo /etc/yum.repos.d/yadm.repo
+
+# Install packages
+RUN dnf -y upgrade \
+  && dnf -y install \
+  golang \
+  htop \
+  hugo \
+  ncdu \
+  neovim \
+  python3-pip \
+  jq \
+  ripgrep \
+  tmux \
+  unzip \
+  && dnf clean all
+
