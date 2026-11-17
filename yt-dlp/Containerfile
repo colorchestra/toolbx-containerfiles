@@ -1,5 +1,5 @@
 ARG NAME=yt-dlp
-ARG BASE=registry.fedoraproject.org/fedora-toolbox:45
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:${fedora_version}
 
 FROM ${BASE}
 

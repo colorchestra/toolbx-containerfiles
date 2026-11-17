@@ -1,5 +1,5 @@
 ARG NAME=homebox
-ARG BASE=registry.fedoraproject.org/fedora-toolbox:45
+ARG BASE=registry.fedoraproject.org/fedora-toolbox:${fedora_version}
 
 FROM ${BASE}
 
@@ -8,6 +8,10 @@ LABEL name="$NAME" \
       maintainer="morph"
 
 ENV EDITOR=nvim
+
+# yadm repo
+RUN dnf config-manager addrepo \
+  --from-repofile=https://download.opensuse.org/repositories/home:TheLocehiliosan:yadm/Fedora_43/home:TheLocehiliosan:yadm.repo
 
 # Install packages
 RUN dnf -y upgrade \
@@ -18,6 +22,7 @@ RUN dnf -y upgrade \
   ncdu \
   neovim \
   python3-pip \
+  jq \
   ripgrep \
   tmux \
   unzip \

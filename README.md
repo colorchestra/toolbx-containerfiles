@@ -6,9 +6,9 @@ wir haben containerfiles und können die dreifach verwenden:
 - für immutable kvm-vms mit bootc
 
 dafür brauchen wir aber unterschiedliche base images
-- toolbx: `registry.fedoraproject.org/fedora-toolbox:45`
-- krun: `registry.fedoraproject.org/fedora-minimal:45`
-- bootc: `quay.io/fedora/fedora-bootc:45`
+- toolbx: `registry.fedoraproject.org/fedora-toolbox:${fedora_version}`
+- krun: `registry.fedoraproject.org/fedora-minimal:${fedora_version}`
+- bootc: `quay.io/fedora/fedora-bootc:${fedora_version}`
 
 die BASE-variable in den containerfiles bildet das ab und muss man entsprechend setzen beim bauen
 
