@@ -16,8 +16,7 @@ nach nem neuen fedora-release die version in FEDORA_VERSION anpassen, das wird d
 
 ## run
 ### toolbox
-`toolbox enter homebox`
-`to enter homebox`
+`toolbox enter homebox` oder `to enter homebox` mit meinen shortcuts
 
 home ist komplett gemountet, soweit sollte alles übliche funktionieren
 
@@ -36,3 +35,9 @@ oder über [disco](https://github.com/colorchestra/disco), da gehts des automati
 `bcvk libvirt stop work && bcvk libvirt start work`
 
 `bcvk libvirt list` alle listen
+
+#### gui-apps über waypipe forwarden
+erst sicherstellen, dass die vm ein vsock-device hat, zb über virt-manager, oder den shortcut `virt-xml -c qemu:///session guitest --add-device --vsock cid.address=10`. dann:
+
+- auf dem host: `waypipe --vsock -s 1234 client`
+- in der vm zb: `waypipe --vsock -s 1234 server -- /usr/share/code/code --ozone-platform=wayland --no-sandbox --user-data-dir /var/root/code`

@@ -9,17 +9,17 @@ LABEL name="$NAME" \
 
 ENV EDITOR=nvim
 
+COPY claude.repo /etc/yum.repos.d/claude.repo
+COPY vscode.repo /etc/yum.repos.d/vscode.repo
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
 # Install packages
 RUN dnf -y upgrade \
   && dnf -y install \
-  golang \
-  htop \
-  hugo \
-  ncdu \
-  neovim \
-  python3-pip \
-  ripgrep \
-  tmux \
-  unzip \
-  && dnf clean all
+    claude-code \
+    code \
+    labwc \
+    waypipe \
+    && dnf clean all
 
+RUN bootc container lint
