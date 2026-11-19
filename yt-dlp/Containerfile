@@ -9,6 +9,11 @@ LABEL name="$NAME" \
 
 ENV EDITOR=nvim
 
+# Install Deno
+RUN curl -fSL -o /tmp/install.sh https://deno.land/install.sh \
+  && chmod +x /tmp/install.sh
+RUN /tmp/install.sh --yes
+
 # Install packages
 RUN dnf -y upgrade \
   && dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
@@ -18,6 +23,7 @@ RUN dnf -y upgrade \
   && dnf clean all
 
 RUN pip install \
-  yt-dlp
+  yt-dlp \
+  yt-dlp-ejs
 
 COPY bin/* /usr/bin/

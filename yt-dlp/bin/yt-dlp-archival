@@ -13,4 +13,4 @@ yt-dlp \
   --write-subs --write-auto-subs --all-subs \
   --write-thumbnail --write-info-json \
   -o "%(title)s.%(ext)s" \
-  "$*"
+  "$@"
